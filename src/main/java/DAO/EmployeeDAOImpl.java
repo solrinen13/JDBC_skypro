@@ -1,4 +1,5 @@
 package DAO;
+import lombok.ToString;
 import model.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -12,7 +13,6 @@ import static org.hibernate.criterion.Projections.id;
 
 public class EmployeeDAOImpl implements EmployeeDAO {
 
-private static SessionFactory sessionFactory;
 
     @Override
     public void save(Employee employee) {
@@ -22,12 +22,12 @@ private static SessionFactory sessionFactory;
             session.save(employee);
             transaction.commit();
         }
-
     }
+
     @Override
     public Employee findById(Long id) {
         try (Session session = HibernateSessionFactoryUtils.getSessionFactory().openSession()){
-            return session.get(Employee.class, id());
+            return session.get(Employee.class, id);
         }
 
     }
@@ -48,7 +48,7 @@ private static SessionFactory sessionFactory;
         try(session){
             Transaction transaction = session.beginTransaction();
            Query query = session.createNativeQuery("DELETE FROM employee WHERE id = :id");
-           query.setParameter("id",id());
+           query.setParameter("id",employee.getId());
            query.executeUpdate();
            transaction.commit();
 
@@ -58,7 +58,7 @@ private static SessionFactory sessionFactory;
     @Override
     public List<Employee> findAll() {
         try (Session session = HibernateSessionFactoryUtils.getSessionFactory().openSession()){
-            return session.createNativeQuery("SELECT FROM employee").list();
+            return session.createNativeQuery("SELECT * FROM employee",Employee.class).list();
         }
     }
 
