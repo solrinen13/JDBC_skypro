@@ -15,7 +15,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     @Override
     public void save(Employee employee) {
 
-        try(Session session = HibernateSessionFactoryUtils.getSessionFactory().openSession();){
+        try(Session session = HibernateSessionFactoryUtils.getSessionFactory().openSession()){
             Transaction transaction = session.beginTransaction();
             session.save(employee);
             transaction.commit();
@@ -32,7 +32,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
     @Override
     public void update(Employee employee) {
-        try(Session session = HibernateSessionFactoryUtils.getSessionFactory().openSession();){
+        try(Session session = HibernateSessionFactoryUtils.getSessionFactory().openSession()){
             Transaction transaction = session.beginTransaction();
             session.update(employee);
             transaction.commit();
@@ -40,12 +40,13 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     }
 
     @Override
-    public void deleteById(Employee employee) {
-        try(Session session = HibernateSessionFactoryUtils.getSessionFactory().openSession();){
+    public void delete(Employee employee) {
+        try(Session session = HibernateSessionFactoryUtils.getSessionFactory().openSession()){
             Transaction transaction = session.beginTransaction();
-           Query query = session.createNativeQuery("DELETE FROM employee WHERE id = :id");
-           query.setParameter("id",employee.getId());
-           query.executeUpdate();
+            session.delete(employee);
+//           Query query = session.createNativeQuery("DELETE FROM employee WHERE id = :id");
+//           query.setParameter("id",employee.getId());
+//           query.executeUpdate();
            transaction.commit();
 
         }

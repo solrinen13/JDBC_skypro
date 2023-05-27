@@ -11,18 +11,18 @@ public class Application {
 
 
           EmployeeDAOImpl service = new EmployeeDAOImpl();
-//        Employee employee = new Employee();
-//        employee.setId(13);
-//        employee.setFirstName("Cheburek");
-//        employee.setLastName("Со свином");
-//        employee.setGender("M");
-//        employee.setAge(500);
-//        employee.setCityId(3);
+        Employee employee = new Employee();
+        employee.setId(15L);
+        employee.setFirstName("Mark");
+        employee.setLastName("Hunter");
+        employee.setGender("m");
+        employee.setAge(45);
+        employee.setCityId(1);
 
        // System.out.println(employee);
        // service.update(employee);
-        //service.deleteById(employee);
-        System.out.println(service.findById(15L));
-       //service.findAll().forEach((e)->System.out.println(e));
+        service.delete(employee);
+        //System.out.println(service.findById(15L));
+       service.findAll().forEach((e)->System.out.println(e));
     }
 }
