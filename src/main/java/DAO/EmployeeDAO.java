@@ -1,15 +1,15 @@
 package DAO;
 
 
-import post.Employee;
+import model.Employee;
 
 import java.util.List;
 
 public interface EmployeeDAO {
-    Employee findById(Integer id);
-    Employee update(Employee employee);
-    void create(Employee employee);
-    void deleteById(Integer id);
+    Employee findById(Long id);
+    void update(Employee employee);
+    void save(Employee employee);
+    void delete(Employee employee);
 
     List<Employee> findAll();
 }
