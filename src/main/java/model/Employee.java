@@ -7,10 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.jetbrains.annotations.NotNull;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @ToString
 @Data
@@ -22,18 +19,23 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
-    private String first_name;
 
     @NotNull
-    private String last_name;
+    @Column(name = "first_name")
+    private String firstName;
+
+    @NotNull
+    @Column(name = "last_name")
+    private String lastName;
+
     @NotNull
     private String gender;
 
     @NotNull
     private Integer age;
 
-    private Integer city_id;
+    @Column(name = "city_id")
+    private Integer cityId;
 
 
 }

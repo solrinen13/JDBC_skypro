@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f9e369b-64bf-42c0-a9a7-c2637f748b73" name="Changes" comment="1 commit">
+    <list default="true" id="7f9e369b-64bf-42c0-a9a7-c2637f748b73" name="Changes" comment="2 commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/EmployeeDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/EmployeeDAOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.cfg.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +78,9 @@
       <workItem from="1684901294104" duration="426000" />
       <workItem from="1684901763388" duration="9781000" />
       <workItem from="1684984729272" duration="4204000" />
-      <workItem from="1685035747734" duration="4457000" />
+      <workItem from="1685035747734" duration="4785000" />
+      <workItem from="1685127017440" duration="6000" />
+      <workItem from="1685187849504" duration="63000" />
     </task>
     <task id="LOCAL-00001" summary="1 commit">
       <created>1684781114592</created>
@@ -104,7 +103,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684988274075</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="2 commit">
+      <created>1685043353798</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1685043353798</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,8 +128,8 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="2 commit" />
     <MESSAGE value="1 commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="1 commit" />
+    <MESSAGE value="2 commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="2 commit" />
   </component>
 </project>

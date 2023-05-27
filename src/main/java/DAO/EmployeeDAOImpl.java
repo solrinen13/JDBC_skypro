@@ -2,22 +2,20 @@ package DAO;
 import lombok.ToString;
 import model.Employee;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import utils.HibernateSessionFactoryUtils;
 
 import javax.persistence.*;
 import java.util.List;
 
-import static org.hibernate.criterion.Projections.id;
 
 public class EmployeeDAOImpl implements EmployeeDAO {
 
 
     @Override
     public void save(Employee employee) {
-        Session session = HibernateSessionFactoryUtils.getSessionFactory().openSession();
-        try(session){
+
+        try(Session session = HibernateSessionFactoryUtils.getSessionFactory().openSession();){
             Transaction transaction = session.beginTransaction();
             session.save(employee);
             transaction.commit();
@@ -34,8 +32,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
     @Override
     public void update(Employee employee) {
-        Session session = HibernateSessionFactoryUtils.getSessionFactory().openSession();
-        try(session){
+        try(Session session = HibernateSessionFactoryUtils.getSessionFactory().openSession();){
             Transaction transaction = session.beginTransaction();
             session.update(employee);
             transaction.commit();
@@ -44,8 +41,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
     @Override
     public void deleteById(Employee employee) {
-        Session session = HibernateSessionFactoryUtils.getSessionFactory().openSession();
-        try(session){
+        try(Session session = HibernateSessionFactoryUtils.getSessionFactory().openSession();){
             Transaction transaction = session.beginTransaction();
            Query query = session.createNativeQuery("DELETE FROM employee WHERE id = :id");
            query.setParameter("id",employee.getId());
