@@ -1,11 +1,9 @@
 package DAO;
-import lombok.ToString;
 import model.Employee;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utils.HibernateSessionFactoryUtils;
 
-import javax.persistence.*;
 import java.util.List;
 
 
@@ -23,7 +21,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     }
 
     @Override
-    public Employee findById(Long id) {
+    public Employee findById(Integer id) {
         try (Session session = HibernateSessionFactoryUtils.getSessionFactory().openSession()){
             return session.get(Employee.class, id);
         }
@@ -44,9 +42,6 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         try(Session session = HibernateSessionFactoryUtils.getSessionFactory().openSession()){
             Transaction transaction = session.beginTransaction();
             session.delete(employee);
-//           Query query = session.createNativeQuery("DELETE FROM employee WHERE id = :id");
-//           query.setParameter("id",employee.getId());
-//           query.executeUpdate();
            transaction.commit();
 
         }

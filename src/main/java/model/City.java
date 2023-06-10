@@ -1,24 +1,42 @@
 package model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import javax.persistence.*;
+import java.util.List;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Entity
+@Table(name = "city")
 public class City {
-    private Integer city_id;
-    private String  city_name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "city_id")
+    private int cityId;
+    @Column(name = "city_name")
+    private String cityName;
 
-    public static City create(ResultSet resultSet) throws SQLException {
-        City city = new City();
-        city.setCity_id(resultSet.getInt("city_id"));
-        city.setCity_name(resultSet.getString("city_name"));
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "city")
+    private List<Employee> employees;
 
-        return city;
+    public City(String cityName, int cityId) {
+        this.cityName = cityName;
+        this.cityId = cityId;
+    }
+
+    public City(String cityName) {
+        this.cityName = cityName;
+    }
+
+    public City(int cityId) {
+        this.cityId = cityId;
+    }
+
+    public City() {
+
+    }
+
+    @Override
+    public String toString() {
+        return cityName;
     }
 }

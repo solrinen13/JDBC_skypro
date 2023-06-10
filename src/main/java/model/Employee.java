@@ -1,42 +1,54 @@
 package model;
-
-
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-import org.jetbrains.annotations.NotNull;
-
 import javax.persistence.*;
 
-@ToString
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Entity(name = "employee")
+@Entity
+@Table(name = "employee")
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-
-    @NotNull
+    @Column(name = "id")
+    private int id;
     @Column(name = "first_name")
     private String firstName;
-
-    @NotNull
     @Column(name = "last_name")
     private String lastName;
-
-    @NotNull
+    @Column(name = "gender")
     private String gender;
+    @Column(name = "age")
+    private int age;
 
-    @NotNull
-    private Integer age;
-
-    @Column(name = "city_id")
-    private Integer cityId;
+    @ManyToOne
+    @JoinColumn(name = "city_id")
+    private City city;
 
 
+    public Employee() {
+    }
+
+    public Employee(int id, String firstName, String lastName, String gender, int age, City city) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.city = city;
+    }
+
+    public Employee(String firstName, String lastName, String gender, int age, City city) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.age = age;
+        this.city = city;
+    }
+    @Override
+    public String toString() {
+        return "id - " + id +
+                ", first_name - " + firstName +
+                ", last_name - " + lastName +
+                ", gender - " + gender +
+                ", age - " + age +
+                ", city - " + city;
+    }
 }
 
